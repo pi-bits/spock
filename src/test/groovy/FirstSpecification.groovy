@@ -29,4 +29,16 @@ class FirstSpecification extends Specification {
         then:
         list == [2, 3, 4]
     }
+    def "should get exception when removing non-existent item from the list"()
+    {
+        given:
+        def list = [1,2,3,4]
+
+        when:
+        list.remove(10);
+
+        then:
+        thrown(IndexOutOfBoundsException.class);
+        list.size()==4;
+    }
 }
