@@ -6,17 +6,27 @@ class FirstSpecification extends Specification {
         1 + 1 == 2
     }
 
-    def "two plus two equal to four"()
-    {
+    def "two plus two equal to four"() {
         given:
-            int left = 2;
-            int right =2;
+        int left = 2;
+        int right = 2;
 
         when:
-            int result = left+right
+        int result = left + right
 
         then:
-            result==4
+        result == 4
 
+    }
+
+    def "should be able to remove from the list"() {
+        given:
+        def list = [1, 2, 3, 4];
+
+        when:
+        list.remove(0)
+
+        then:
+        list == [2, 3, 4]
     }
 }
